@@ -147,6 +147,8 @@ The example below illustrates includes() method called on the function's argumen
 */
 
 
-let string = "I am MERN Stack Developer !";
+let sentence = "I am MERN Stack Developer !";
 let word = 'MERN';
+
+console.log(`The word "${word} " ${sentence.includes(word) ? 'is' : 'is not '}  in the sentence  `)
 
