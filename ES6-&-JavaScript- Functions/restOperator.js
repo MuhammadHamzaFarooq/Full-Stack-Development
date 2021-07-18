@@ -3,9 +3,11 @@ console.log("Learn javaScript ES6 Rest Operator");
 //In Old javaScript There are manay arrgument in function Use bllt- in funtion arguments
 
 // example : 01
+
 function sum(num1, num2) {
     let sum = num1 + num2;
     console.log(sum);
+}
 
 //calling funcion 
 sum(20, 30) //valid 
