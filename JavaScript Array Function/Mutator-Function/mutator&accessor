@@ -1,0 +1,10 @@
+Introduction:
+
+Arrays in JavaScript consist of a list of elements.
+JavaScript has many useful built-in methods to work with arrays.
+Methods that modify the original array are known as mutator methods,
+and methods that return a new value or representation are known as accessor methods. 
+In this tutorial, we will focus on mutator methods.
+
+
+
