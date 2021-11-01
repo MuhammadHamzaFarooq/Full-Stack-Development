@@ -22,7 +22,7 @@ we can simply remove an item from any point in the array.
 
 let food = ['barayni','pilao','tika','rost','pizza','karhai','kabab','qorma','sajji'];
 
-food.splice(3,1,"mutan karhai");
+food.splice(3,2,"mutan karhai",'Paye');
 
 console.log(food);
 
