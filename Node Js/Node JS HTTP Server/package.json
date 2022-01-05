@@ -1,0 +1,15 @@
+{
+  "name": "http-backend-server",
+  "version": "1.0.0",
+  "description": "\"this is practice for node js backend code\"",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Muhammad Hamza Farooq",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
