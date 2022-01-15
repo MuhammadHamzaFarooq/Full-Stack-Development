@@ -1,31 +1,27 @@
 const express = require('express');
 const app = express();
-const port = 8000;
-
+const port = 3000;
 
 app.get('/',(req,res)=>{
-    res.send("Welcome in Express Server");
-    res.sendFile('F:\Full-Stack-Development\Node Js\Express Server\views\index.html');
+    // res.send("Welcome in Express Server");
+    res.sendFile('./views/index.html',{root:__dirname});
 });
 
 app.get('/about',(req,res)=>{
-
     res.sendFile('./views/about.html',{root:__dirname});
+    console.log('Request Successfully Handled');
 });
 
-//Redirect 
-
-app.get('/about-us',(req,res)=>{
-   res.redirect('/about')
+// Redirect 
+app.get('/about-me',(req,res)=>{
+      res.redirect('/about');
 });
 
-// 404 Page not fond route 
+// 404
 app.use((req,res)=>{
     res.status(404).sendFile('./views/404.html',{root:__dirname});
-});
-
+})
 
 app.listen(port,()=>{
-    console.log(`server is up on running port ${port}`);
+    console.log(`server is upon running on ${port}`)
 });
-
