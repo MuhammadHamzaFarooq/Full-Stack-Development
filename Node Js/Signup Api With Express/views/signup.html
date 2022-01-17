@@ -82,18 +82,25 @@
             placeholder="Enter User Password"
           />
         </div>
-        <button class="btn">Sign Up</button>
+        <button class="btn" id="btn">Sign Up</button>
       </form>
     </div>
 
     <script>
-      let btn = document.querySelector('button');
-      btn.addEventListener('click',function(){
-          let username = document.getElementById('username').value;
-          let useremail = document.getElementById('useremail').value;
-          let userpassowrd = document.getElementById('userpassowrd').value;
+      let btn = document.getElementById("btn");
+      btn.addEventListener("click", async function (e) {
+        e.preventDefault();
+        let username = document.getElementById("username").value;
+        let useremail = document.getElementById("useremail").value;
+        let userpassowrd = document.getElementById("userpassword").value;
 
-          let response = axios.post();
+        let response = await axios.post("/auth/signup", {
+          username,
+          useremail,
+          userpassowrd,
+        });
+
+        console.log("User Response " +response)
       });
     </script>
   </body>
