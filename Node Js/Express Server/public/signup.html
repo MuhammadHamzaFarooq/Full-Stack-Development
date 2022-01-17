@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Custom Css  -->
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: url("https://raw.githubusercontent.com/MuhammadHamzaFarooq/Login-Page-Assignment-02/main/img/bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+      }
+      .loginform {
+        margin-top: 15px;
+        width: 40%;
+        height: 100vh;
+        border: 2px solid black;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10%;
+        background-color: whitesmoke;
+      }
+      h1 {
+        margin: 30px 0px;
+        font-size: 40px;
+        font-weight: large;
+      }
+      .username-box {
+        margin: 10px 0px;
+        font-size: 30px;
+      }
+      .password-box {
+        margin: 20px 0px;
+        font-size: 30px;
+      }
+      input {
+        padding: 10px;
+        width: 100%;
+      }
+      .btn {
+        padding: 10px 10px;
+        border: 1px solid gray;
+        background-color: rgb(45, 102, 102);
+        color: white;
+        width: 61%;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      hr {
+        border: 1px solid teal;
+        width: 60%;
+        margin-bottom: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form class="loginform">
+        <h1>Login Form</h1>
+        <hr />
+        <div class="username-box">
+          <label for="email">Useremail :</label>
+          <input
+            type="email"
+            placeholder="Enter your email"
+            name="useremail"
+            id="useremail"
+          />
+        </div>
+        <div class="username-box">
+          <label for="username">Username :</label>
+          <input
+            type="text"
+            placeholder="Enter your username"
+            name="username"
+            id="username"
+          />
+        </div>
+        <div class="password-box">
+          <label for="password">Password :</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+           
+          />
+        </div>
+        <button class="btn" >Sign Up</button>
+      </form>
+    </div>
+
+
+    <script>
+        let btn = document.querySelector('button');
+        btn.addEventListener('click', async function(e){
+            e.preventDefault();
+            let name = document.getElementById('username').value;
+            let email = document.getElementById('useremail').value;
+            let password = document.getElementById('password').value;
+
+            let response = await axios.post('/auth/signup',{name,email,passowrd});
+              console.log("response is : ", response)
+
+        })
+    </script>
+   
+  </body>
+</html>
