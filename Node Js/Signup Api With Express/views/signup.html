@@ -82,6 +82,14 @@
             placeholder="Enter User Password"
           />
         </div>
+        <div>
+          <label for="confirm-password">Confirm Password :</label>
+          <input
+            type="password"
+            id="userConfirmPassword"
+            placeholder="Enter User Confirm Password"
+          />
+        </div>
         <button class="btn" id="btn">Sign Up</button>
       </form>
     </div>
@@ -90,14 +98,16 @@
       let btn = document.getElementById("btn");
       btn.addEventListener("click", async function (e) {
         e.preventDefault();
-        let username = document.getElementById("username").value;
-        let useremail = document.getElementById("useremail").value;
-        let userpassowrd = document.getElementById("userpassword").value;
+        let name = document.getElementById("username").value;
+        let email = document.getElementById("useremail").value;
+        let password = document.getElementById("userpassword").value;
+        let confirmPassword = document.getElementById("userConfirmPassword").value;
 
-        let response = await axios.post("/auth/signup", {
-          username,
-          useremail,
-          userpassowrd,
+        let response = await axios.post("https://localhost:8000/auth/signup", {
+          name,
+          email,
+          password,
+          confirmPassword
         });
 
         console.log("User Response " +response)
