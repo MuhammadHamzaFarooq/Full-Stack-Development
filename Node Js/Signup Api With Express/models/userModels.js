@@ -1,7 +1,7 @@
 const emailValidator = require("email-validator");
 const bcrypt = require('bcryptjs');
-
 const mongoose = require("mongoose");
+
 // Connect to database
 const uri =
   "mongodb+srv://admin:12345@nodejscluster01.u7jbf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";

@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
+const userModel = require('../models/userModels')
 
 // mini app
 const userRouter = express.Router();
 userRouter
   .route("/")
-  .get(getUsers)
+  // .get(protectRoutes, getUsers)
+  .get( getUsers)
   .post(postUser)
   .patch(updateUser)
   .delete(delelteUser);
@@ -72,7 +74,7 @@ async function updateUser(req, res) {
   // }
 
   let user = await userModel.findOneAndUpdate(
-    { email: "mhamza2021999@gmail.com" },
+    { "email": "mhamza2021999@gmail.com" },
     dataToBeUpdated
   );
 
@@ -102,4 +104,18 @@ function getCookies(req, res) {
 
 userRouter.route("/:username").get(getUserByID);
 
+// let flag = true;
+
+// function protectRoutes(req,res,next){
+//   if(res.cookies.isLoggedIn){
+//     next()
+//   }
+//   else{
+//     return res.json(
+//       {
+//         message:'operation not allowed'
+//       }
+//     )
+//   }
+// }
 module.exports = userRouter;
