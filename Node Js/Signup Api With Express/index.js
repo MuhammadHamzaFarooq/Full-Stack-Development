@@ -1,7 +1,6 @@
 // Express Api
 const express = require("express");
 const cookieParser = require('cookie-parser');
-const userModel = require("./models/userModels");
 const userRouter = require("./Routers/userRouter");
 const authRouter = require("./Routers/authRouter");
 const app = express();

@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
-const userModel = require('../models/userModels')
+const userModel = require('../models/userModels');
+const protectRoutes = require('./authHelper') 
 
 // mini app
 const userRouter = express.Router();
 userRouter
   .route("/")
-  // .get(protectRoutes, getUsers)
-  .get( getUsers)
+  .get(protectRoutes, getUsers)
+  // .get( getUsers)
   .post(postUser)
   .patch(updateUser)
   .delete(delelteUser);
@@ -16,11 +17,11 @@ userRouter.route("/getCookies").get(getCookies);
 
 userRouter.route("/setCookies").get(setCookies);
 
-// Query
-app.get("/user", (req, res) => {
-  console.log(req.query);
-  res.send(users);
-});
+// // Query
+// app.get("/user", (req, res) => {
+//   console.log(req.query);
+//   res.send(users);
+// });
 
 function setCookies(req, res) {
   //  res.setHeader('Set-Cookie','isLoggedIn=true');
@@ -48,7 +49,7 @@ function getUserByID(req, res) {
 }
 
 async function getUsers(req, res) {
-  let allUsers = userModel.find();
+  let allUsers = await userModel.find();
   res.json({
     message: "List of All Users",
     data: allUsers,
@@ -104,18 +105,5 @@ function getCookies(req, res) {
 
 userRouter.route("/:username").get(getUserByID);
 
-// let flag = true;
 
-// function protectRoutes(req,res,next){
-//   if(res.cookies.isLoggedIn){
-//     next()
-//   }
-//   else{
-//     return res.json(
-//       {
-//         message:'operation not allowed'
-//       }
-//     )
-//   }
-// }
 module.exports = userRouter;

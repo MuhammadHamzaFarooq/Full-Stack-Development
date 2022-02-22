@@ -1,6 +1,6 @@
-const emailValidator = require("email-validator");
-const bcrypt = require('bcryptjs');
-const mongoose = require("mongoose");
+const emailValidator = require("email-validator"); // use email validator package
+const bcrypt = require('bcryptjs'); // use bcrypt package for hashing 
+const mongoose = require("mongoose"); // use mongoose package
 
 // Connect to database
 const uri =
@@ -16,7 +16,6 @@ mongoose
   });
 
 // Create User Schema
-
 const userSchema = new mongoose.Schema({
   name: {
     type: String,

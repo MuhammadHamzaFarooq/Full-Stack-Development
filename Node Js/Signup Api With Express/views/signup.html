@@ -101,16 +101,17 @@
         let name = document.getElementById("username").value;
         let email = document.getElementById("useremail").value;
         let password = document.getElementById("userpassword").value;
-        let confirmPassword = document.getElementById("userConfirmPassword").value;
+        let confirmPassword = document.getElementById(
+          "userConfirmPassword"
+        ).value;
 
         let response = await axios.post("https://localhost:8000/auth/signup", {
           name,
           email,
           password,
-          confirmPassword
+          confirmPassword,
         });
-
-        console.log("User Response " +response)
+        console.log("User Response " + response);
       });
     </script>
   </body>
